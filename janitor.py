@@ -8,7 +8,7 @@ from pathlib import Path
 TARGET_FOLDER = Path("C:/TimeZone") # Update this path!
 DELETE_FOLDER = TARGET_FOLDER / "_TO_DELETE_REVIEW"
 RESTORE_LOG = DELETE_FOLDER / "restore_map.json"
-DAYS_UNTIL_STALE = 0
+DAYS_UNTIL_STALE = 2
 
 def setup():
     DELETE_FOLDER.mkdir(exist_ok=True)
