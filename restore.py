@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 # --- CONFIGURATION ---
-TARGET_FOLDER = Path("C:/TimeZone") # Match this to janitor.py
+TARGET_FOLDER = Path("C:/Users/Maureennkwocha/OneDrive - Federal University of Technology, Owerri/Documents") # Match this to janitor.py
 DELETE_FOLDER = TARGET_FOLDER / "_TO_DELETE_REVIEW"
 RESTORE_LOG = DELETE_FOLDER / "restore_map.json"
 

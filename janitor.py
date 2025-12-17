@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 # --- CONFIGURATION ---
-TARGET_FOLDER = Path("C:/TimeZone") # Update this path!
+TARGET_FOLDER = Path("C:/Users/Maureennkwocha/OneDrive - Federal University of Technology, Owerri/Documents") # Update this path!
 DELETE_FOLDER = TARGET_FOLDER / "_TO_DELETE_REVIEW"
 RESTORE_LOG = DELETE_FOLDER / "restore_map.json"
 DAYS_UNTIL_STALE = 2
