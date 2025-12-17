@@ -5,7 +5,7 @@ from pathlib import Path
 
 # --- CONFIGURATION ---
 # Change this to the folder you want to clean (e.g., /Users/yourname/Downloads)
-TARGET_FOLDER = Path("/Users/yourname/Downloads") 
+TARGET_FOLDER = Path("C:/TimeZone") 
 
 # Where files go based on extension
 DIRECTORIES = {
@@ -18,7 +18,7 @@ DIRECTORIES = {
 
 # Folder for old files (The "Safety Net")
 DELETE_REVIEW_FOLDER = TARGET_FOLDER / "_TO_DELETE_REVIEW"
-DAYS_UNTIL_STALE = 30
+DAYS_UNTIL_STALE = 0
 
 def setup_folders():
     """Creates destination folders if they don't exist."""
