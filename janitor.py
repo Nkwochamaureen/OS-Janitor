@@ -117,7 +117,7 @@ def delete_remaining_files(delete_folder, restore_log):
         print("Deletion cancelled. Files remain in quarantine.")
 
 # --- MAIN INTERFACE ---
-def main_interface(target_path, days):
+def main_interface(target_path, days, silent_mode):
     target_folder = Path(target_path)
     
     if not target_folder.exists():
@@ -130,9 +130,15 @@ def main_interface(target_path, days):
     # 1. Run the Cleaner Logic
     run_cleaner(target_folder, delete_folder, restore_log, days)
 
-    # 2. Start the Review Loop
+    # 2. IF SILENT MODE: Stop here. Don't ask questions.
+    if silent_mode:
+        print("--- Silent Mode: Cleanup finished. Check quarantine later. ---")
+        return
+
+    # 3. Start the Review Loop (Only if NOT silent)
     while True:
-        # Get list of quarantined files
+        # ... (Rest of your while loop code remains the same) ...
+        # (Copy the existing while loop logic here)
         files = [
             f.name for f in delete_folder.iterdir() 
             if f.is_file() and f.name != "restore_map.json" and not f.name.startswith(".")
@@ -147,22 +153,19 @@ def main_interface(target_path, days):
             print(f"[{index}] {file}")
         
         print("\nOPTIONS:")
-        print(" [Number] : Type a number to RESTORE a file to its original folder.")
+        print(" [Number] : Type a number to RESTORE.")
         print(" [D]      : DELETE ALL remaining files and Exit.")
-        print(" [X]      : Exit without deleting (Safety Mode).")
+        print(" [X]      : Exit without deleting.")
         
         choice = input("> ").strip().lower()
 
         if choice == 'x':
             print("Exiting. Files are still in quarantine folder.")
             break
-        
         elif choice == 'd':
             delete_remaining_files(delete_folder, restore_log)
             break
-
         else:
-            # Try to parse as a number for restoration
             try:
                 selection_index = int(choice) - 1
                 if 0 <= selection_index < len(files):
@@ -171,13 +174,17 @@ def main_interface(target_path, days):
                 else:
                     print("⚠  Invalid number.")
             except ValueError:
-                print("⚠  Invalid input. Type a number, 'D', or 'X'.")
+                print("⚠  Invalid input.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Clean folder and review files to delete.")
     parser.add_argument("--path", type=str, required=True, help="The folder to clean")
     parser.add_argument("--days", type=int, default=DEFAULT_DAYS, help="Days until file is stale")
     
+    # NEW ARGUMENT HERE
+    parser.add_argument("--silent", action="store_true", help="Run without user interaction (for automation)")
+    
     args = parser.parse_args()
     
-    main_interface(args.path, args.days)
+    # Pass the silent flag to the main interface
+    main_interface(args.path, args.days, args.silent)
