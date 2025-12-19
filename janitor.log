@@ -1,14 +1,5 @@
-Traceback (most recent call last):
-  File "C:\Users\Maureennkwocha\OneDrive - Federal University of Technology, Owerri\Documents\OS-Janitor\janitor.py", line 190, in <module>
-    main_interface(args.path, args.days, args.silent)
-    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Maureennkwocha\OneDrive - Federal University of Technology, Owerri\Documents\OS-Janitor\janitor.py", line 131, in main_interface
-    run_cleaner(target_folder, delete_folder, restore_log, days)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Maureennkwocha\OneDrive - Federal University of Technology, Owerri\Documents\OS-Janitor\janitor.py", line 37, in run_cleaner
-    print(f"--- \U0001f9f9 Scanning {target_folder.name} for files older than {days} days ---")
-    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
-    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f9f9' in position 4: character maps to <undefined>
+--- 🧹 Scanning Documents for files older than 30 days ---
+   -> Moved to quarantine: Excel_LT_Payroll.xlsx
+   -> Moved to quarantine: Princewill sheets.xlsx
+--- Moved 2 files to quarantine ---
+--- Silent Mode: Cleanup finished. Check quarantine later. ---
