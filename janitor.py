@@ -3,7 +3,12 @@ import shutil
 import time
 import json
 import argparse
+import sys  # <--- Make sure this is imported
 from pathlib import Path
+
+# --- ADD THIS LINE RIGHT HERE ---
+# This fixes the UnicodeEncodeError on Windows
+sys.stdout.reconfigure(encoding='utf-8')
 
 # --- CONFIGURATION ---
 DEFAULT_DAYS = 30
